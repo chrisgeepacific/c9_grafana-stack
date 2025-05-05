@@ -4,12 +4,22 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: [ 'localhost:9090' ]
 
-  # - job_name: 'example_api'
-  #   scheme: http
-  #   static_configs:
-  #     - targets: ['example_api:9091']
+  - job_name: 'api-gateway'
+    scheme: http
+    static_configs:
+      - targets: [ 'api-gateway:8080' ]
+
+  - job_name: 'user-service'
+    scheme: http
+    static_configs:
+      - targets: [ 'user-service:8080' ]
+
+  - job_name: 'lottery-service'
+    scheme: http
+    static_configs:
+      - targets: [ 'lottery-service:8080' ]
 
   #  ? TODO: add your services here
   # - job_name: 'your-job-name'
